@@ -1,0 +1,17 @@
+# CopperlineOS Shell Onboarding Ritual
+# Language: arexx-next (speculative syntax)
+
+on first_boot {
+    echo "🧠 Welcome to CopperlineOS"
+    run copperd.register_event "init_ui"
+    run compositord.load_layer "bg.png"
+    run blitterd.draw_text "Hello, Modular World!" at (120, 300)
+    run audiomixerd.play "startup_chime.wav"
+    badge.unlock "Shell Ritualist"
+}
+
+on user_login {
+    echo "🎴 Badge Binder activated"
+    run copperd.trigger "daily_echo"
+    run arexx-next.script "show_badges.arexx"
+}
